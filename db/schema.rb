@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_01_213838) do
+ActiveRecord::Schema.define(version: 2019_08_02_021152) do
+
+  create_table "goal_trackers", force: :cascade do |t|
+    t.integer "goal_id"
+    t.datetime "occurrence_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["goal_id"], name: "index_goal_trackers_on_goal_id"
+  end
+
+  create_table "goals", force: :cascade do |t|
+    t.string "name"
+    t.string "color"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "subjects", force: :cascade do |t|
     t.string "title"
