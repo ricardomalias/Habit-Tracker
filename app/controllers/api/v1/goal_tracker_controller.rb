@@ -4,7 +4,7 @@ module Api
 
             # GET goal_trackers
 			def index
-				goal_trackers = GoalTracker.order('created_at DESC');
+				goal_trackers = GoalTracker.where(goal_id: params[:goal_id]).order('created_at DESC');
 				render json: {count:goal_trackers.count, data:goal_trackers},status: :ok
 			end
 
@@ -44,7 +44,7 @@ module Api
 
 			# Params
 			private def goal_tracker_params
-				params.permit(:occurrence_at)
+				params.permit(:goal_id, :occurrence_at)
 			end
 		end
 	end
