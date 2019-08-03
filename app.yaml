@@ -15,7 +15,7 @@
 # [START gae_flex_quickstart_yaml]
 runtime: ruby
 env: flex
-entrypoint: bundle exec ruby app.rb
+entrypoint: bundle exec rackup -p $PORT
 
 # This sample incurs costs to run on the App Engine flexible environment.
 # The settings below are to reduce costs during testing and are not appropriate
